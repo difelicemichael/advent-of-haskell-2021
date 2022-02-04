@@ -7,10 +7,10 @@ solve :: String -> IO ()
 solve f = do
     ints <- readInts f
     let lists = groupN 3 ints
-    print $ snd (foldl' incrSum (sum (head lists), 0) lists)
+    print $ snd (foldl' increasing (sum (head lists), 0) lists)
     where
-        incrSum (prev, acc) cur
-            | sum cur > prev = (sum cur, acc + 1)
+        increasing (prev, acc) cur
+            | sum cur > prev = (sum cur, acc+1)
             | otherwise      = (sum cur, acc)
 
 groupN :: Int -> [a] -> [[a]]
