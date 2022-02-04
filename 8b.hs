@@ -104,5 +104,3 @@ solve f = do
     let mapping = M.fromList . (swap <$>) . M.toList . getStringMap
     let r = (\i -> resolveSingle (mapping $ fst <$> i) (snd <$> i))
     undefined
-
-debug = solve ".inputs\\8"
